@@ -26,7 +26,7 @@ public class Converter {
         return symbolToValue.getOrDefault(symbol, -1);
     }
 
-    public int valueToChar(int value) {
+    public char valueToChar(int value) {
         return valueToSymbol.getOrDefault(value, '?');
     }
 }

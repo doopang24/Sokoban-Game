@@ -7,13 +7,13 @@ public class StageReader {
     public String receiveStage() {
         String input = """
                 Stage 2
-                  #######
+                  #######  
                 ###  O  ###
                 #    o    #
                 # Oo P oO #
                 ###  o  ###
-                  #  O  #
-                  #######
+                  #  O  #  
+                  #######  
                 """;
         return input.strip();
     }
@@ -69,10 +69,23 @@ public class StageReader {
         return mapInfo;
     }
 
+    public String mapDataToStage(int[][] mapData, int height, int width) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                char symbol = converter.valueToChar(mapData[i][j]);
+                builder.append(symbol);
+            }
+            if (i < height - 1) builder.append("\n");
+        }
+        return builder.toString();
+    }
+
     public void printStage(MapInfo mapInfo) {
         System.out.println(mapInfo.getStageName());
         System.out.println();
-        System.out.println(mapInfo.getInputStage());
+        String stageStatus = mapDataToStage(mapInfo.getMapData(), mapInfo.getHeight(), mapInfo.getWidth());
+        System.out.println(stageStatus);
         System.out.println();
     }
 }

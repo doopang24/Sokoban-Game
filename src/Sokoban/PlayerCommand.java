@@ -22,4 +22,18 @@ public class PlayerCommand {
             }
         }
     }
+
+    public boolean isMovable(char word, MapInfo mapInfo) {
+        if (word == 'w' || word == 'W' || word == 'a' || word == 'A' || word == 's' || word == 'S' || word == 'd' || word == 'D') {
+            if (mapInfo.checkWay(word)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 }
+
+

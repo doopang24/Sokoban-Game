@@ -3,7 +3,7 @@ package Sokoban;
 public class MapInfo {
 
     private String stageName;
-    private String inputString;
+    private String inputStage;
     private int[][] mapData;
     private int width;
     private int height;
@@ -15,8 +15,8 @@ public class MapInfo {
     public String getStageName() { return stageName; }
     public void setStageName(String stageName) { this.stageName = stageName; }
 
-    public String getInputString() { return inputString; }
-    public void setInputString(String inputString) { this.inputString = inputString; }
+    public String getInputStage() { return inputStage; }
+    public void setInputStage(String inputString) { this.inputStage = inputString; }
 
     public int[][] getMapData() { return mapData; }
     public void setMapData(int[][] mapData) { this.mapData = mapData; }

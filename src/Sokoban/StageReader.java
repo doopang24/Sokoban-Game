@@ -70,6 +70,9 @@ public class StageReader {
     }
 
     public void printStage(MapInfo mapInfo) {
+        System.out.println(mapInfo.getStageName());
+        System.out.println();
         System.out.println(mapInfo.getInputStage());
+        System.out.println();
     }
 }

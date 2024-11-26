@@ -104,18 +104,46 @@ public class MapInfo {
     }
 
     public void moveUp() {
-        playerRow--;
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (mapData[i][j] == 3) {
+                    mapData[i - 1][j] = 3;
+                    mapData[i][j] = 0;
+                }
+            }
+        }
     }
 
     public void moveDown() {
-        playerRow++;
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (mapData[i][j] == 3) {
+                    mapData[i + 1][j] = 3;
+                    mapData[i][j] = 0;
+                }
+            }
+        }
     }
 
     public void moveLeft() {
-        playerCol--;
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (mapData[i][j] == 3) {
+                    mapData[i][j - 1] = 3;
+                    mapData[i][j] = 0;
+                }
+            }
+        }
     }
 
     public void moveRight() {
-        playerCol++;
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (mapData[i][j] == 3) {
+                    mapData[i][j + 1] = 3;
+                    mapData[i][j] = 0;
+                }
+            }
+        }
     }
 }

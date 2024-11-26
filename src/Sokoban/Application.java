@@ -4,23 +4,32 @@ public class Application {
 
     public static void main(String[] args) {
         Application application = new Application();
-        StageReader reader = new StageReader();
-        PlayerCommand command = new PlayerCommand();
+        MapInfo mapInfo = application.start();
+        application.playGame(mapInfo);
+    }
 
+    public MapInfo start() {
+        StageReader reader = new StageReader();
         String stage = reader.receiveStage();
         MapInfo mapInfo = reader.parseStage(stage);
+        System.out.println(mapInfo.getStageName());
         reader.printStage(mapInfo);
+        return mapInfo;
+    }
+
+    public void playGame(MapInfo mapInfo) {
+        PlayerCommand command = new PlayerCommand();
 
         char[] commandList = command.getInputCommand();
         for(char commandWord : commandList) {
             if(command.isMovable(commandWord, mapInfo)) {
-                application.movePlayer(commandWord, mapInfo);
+                movePlayer(commandWord, mapInfo);
             } else {
                 if(commandWord=='q'|| commandWord=='Q') {
-                    application.printEndingMessage();
+                    printEndingMessage();
                     return;
                 } else {
-                    application.freezePlayer(commandWord, mapInfo);
+                    freezePlayer(commandWord, mapInfo);
                 }
             }
         }

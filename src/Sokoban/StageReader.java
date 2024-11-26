@@ -82,9 +82,8 @@ public class StageReader {
     }
 
     public void printStage(MapInfo mapInfo) {
-        System.out.println(mapInfo.getStageName());
-        System.out.println();
         String stageStatus = mapDataToStage(mapInfo.getMapData(), mapInfo.getHeight(), mapInfo.getWidth());
+        System.out.println();
         System.out.println(stageStatus);
         System.out.println();
     }

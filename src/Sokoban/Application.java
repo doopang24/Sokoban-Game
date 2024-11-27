@@ -5,7 +5,10 @@ public class Application {
     public static void main(String[] args) {
         Application application = new Application();
         MapInfo mapInfo = application.start();
-        application.playGame(mapInfo);
+        boolean isRunning = true;
+        while (isRunning) {
+            isRunning = application.playGame(mapInfo);
+        }
     }
 
     public MapInfo start() {

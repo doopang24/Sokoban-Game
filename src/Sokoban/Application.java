@@ -40,21 +40,32 @@ public class Application {
 
     public void movePlayer(char command, MapInfo mapInfo) {
         StageReader reader = new StageReader();
-        switch (command) {
-            case 'w'|'W':
+        switch (Character.toLowerCase(command)) {
+            case 'w':
                 mapInfo.moveUp();
+                reader.printStage(mapInfo);
+                System.out.println(command + ": 위로 이동합니다.");
+                System.out.println();
                 break;
-            case 'a'|'A':
+            case 'a':
                 mapInfo.moveLeft();
+                reader.printStage(mapInfo);
+                System.out.println(command + ": 왼쪽으로로 이동합니다.");
+                System.out.println();
                 break;
-            case 's'|'S':
+            case 's':
                 mapInfo.moveDown();
+                reader.printStage(mapInfo);
+                System.out.println(command + ": 아래로 이동합니다.");
+                System.out.println();
                 break;
-            case 'd'|'D':
+            case 'd':
                 mapInfo.moveRight();
+                reader.printStage(mapInfo);
+                System.out.println(command + ": 오른쪽으로 이동합니다.");
+                System.out.println();
                 break;
         }
-        reader.printStage(mapInfo);
     }
 
     public void freezePlayer(char command, MapInfo mapInfo) {

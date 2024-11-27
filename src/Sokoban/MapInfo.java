@@ -88,16 +88,16 @@ public class MapInfo {
         boolean check = false;
         switch (command) {
             case 'w' | 'W':
-                if (mapData[playerRow - 1][playerCol] == 0) check = true;
+                if (mapData[playerRow - 2][playerCol - 1] == 0) check = true;
                 break;
             case 'a' | 'A':
-                if (mapData[playerRow][playerCol - 1] == 0) check = true;
+                if (mapData[playerRow - 1][playerCol - 2] == 0) check = true;
                 break;
             case 's' | 'S':
-                if (mapData[playerRow + 1][playerCol] == 0) check = true;
+                if (mapData[playerRow][playerCol - 1] == 0) check = true;
                 break;
             case 'd' | 'D':
-                if (mapData[playerRow][playerCol + 1] == 0) check = true;
+                if (mapData[playerRow - 1][playerCol] == 0) check = true;
                 break;
         }
         return check;

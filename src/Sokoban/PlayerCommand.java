@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 public class PlayerCommand {
 
-    public char[] getInputCommand() {
+    public char[] getInputCommand(MapInfo mapInfo) {
         Scanner scanner = new Scanner(System.in);
+        StageReader reader = new StageReader();
         while (true) {
             try {
-                System.out.print("SOKOBAN>");
+                reader.printStage(mapInfo);
+                System.out.print("SOKOBAN> ");
                 String command = scanner.nextLine();
                 char[] commandList = command.toCharArray();
                 for (char word : commandList) {

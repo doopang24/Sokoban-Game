@@ -16,26 +16,26 @@ public class Application {
         String stage = reader.receiveStage();
         MapInfo mapInfo = reader.parseStage(stage);
         System.out.println(mapInfo.getStageName());
-        reader.printStage(mapInfo);
         return mapInfo;
     }
 
-    public void playGame(MapInfo mapInfo) {
+    public boolean playGame(MapInfo mapInfo) {
         PlayerCommand command = new PlayerCommand();
 
-        char[] commandList = command.getInputCommand();
+        char[] commandList = command.getInputCommand(mapInfo);
         for(char commandWord : commandList) {
             if(command.isMovable(commandWord, mapInfo)) {
                 movePlayer(commandWord, mapInfo);
             } else {
                 if(commandWord=='q'|| commandWord=='Q') {
                     printEndingMessage();
-                    return;
+                    return false;
                 } else {
                     freezePlayer(commandWord, mapInfo);
                 }
             }
         }
+        return true;
     }
 
     public void movePlayer(char command, MapInfo mapInfo) {

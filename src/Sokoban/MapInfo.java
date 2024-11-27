@@ -104,44 +104,60 @@ public class MapInfo {
     }
 
     public void moveUp() {
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
+        outer:
+        for (int i = 1; i < height - 1; i++) {
+            for (int j = 1; j < width - 1; j++) {
                 if (mapData[i][j] == 3) {
                     mapData[i - 1][j] = 3;
                     mapData[i][j] = 0;
+                    playerRow = i;
+                    playerCol = j + 1;
+                    break outer;
                 }
             }
         }
     }
 
     public void moveDown() {
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
+        outer:
+        for (int i = 1; i < height - 1; i++) {
+            for (int j = 1; j < width - 1; j++) {
                 if (mapData[i][j] == 3) {
                     mapData[i + 1][j] = 3;
                     mapData[i][j] = 0;
+                    playerRow = i + 2;
+                    playerCol = j + 1;
+                    break outer;
                 }
             }
         }
     }
 
     public void moveLeft() {
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
+        outer:
+        for (int i = 1; i < height - 1; i++) {
+            for (int j = 1; j < width - 1; j++) {
                 if (mapData[i][j] == 3) {
                     mapData[i][j - 1] = 3;
                     mapData[i][j] = 0;
+                    playerRow = i + 1;
+                    playerCol = j;
+                    break outer;
                 }
             }
         }
     }
 
     public void moveRight() {
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
+        outer:
+        for (int i = 1; i < height - 1; i++) {
+            for (int j = 1; j < width - 1; j++) {
                 if (mapData[i][j] == 3) {
                     mapData[i][j + 1] = 3;
                     mapData[i][j] = 0;
+                    playerRow = i + 1;
+                    playerCol = j + 2;
+                    break outer;
                 }
             }
         }
